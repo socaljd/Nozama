@@ -1,0 +1,31 @@
+<% provide(:title, 'Batch Sales Index') %>
+<h1>Batch Sales Index</h1>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>
+<table align="center">
+    <thead>
+    <tr>
+        <th>Batch ID</th>
+        <td>&nbsp&nbsp</td>
+        <th>Uploaded</th>
+        <td>&nbsp&nbsp</td>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @sales.each do |sale| %>
+        <tr>
+            <td><%= link_to sale.batch_id, batchsales_path(:batch_id => sale.batch_id) %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= sale.created_at.strftime('%m/%d/%Y') %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= link_to 'Delete', batchsalesdeleteall_path(:batch_id => sale.batch_id), data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>

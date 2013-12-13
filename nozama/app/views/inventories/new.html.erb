@@ -1,0 +1,15 @@
+<% provide(:title, 'Upload Inventory Data') %>
+<h1>Upload Inventory Data</h1>
+
+<div class="row">
+    <div class="span6 offset3" align="center">
+        <%= form_for(@inventory) do |f| %>
+            <%= f.label :upload, 'Upload Inventory File' %>
+            <%= f.file_field :file %>
+            <br/>
+            <%= submit_tag 'Upload File', class: 'btn btn-small btn-primary', disable_with: 'Uploading...', :name => 'name' %>
+        <% end %>
+    </div>
+</div>
+
+<%= link_to 'Back', inventories_path %>

@@ -1,0 +1,54 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <%= link_to 'Nozama', root_path, id: 'logo' %>
+            <nav>
+                <ul class="nav pull-right">
+                    <!--<li><%= link_to 'Home', root_path %></li>-->
+                    <% if signed_in? %>
+                        <li id="fat-menu" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Inventory <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to 'List Inventory', inventories_path %></li>
+                                <li><%= link_to 'List Uploads', indexbatchinventory_path %></li>
+                                <li><%= link_to 'Search Inventory', inventorysearch_path %></li>
+                                <li class="divider"></li>
+                                <li><%= link_to 'Upload Inventory', new_inventory_path %></li>
+                            </ul>
+                        </li>
+                        <li id="fat-menu" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Sales <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to 'List Sales', sales_path %></li>
+                                <li><%= link_to 'List Uploads', indexbatchsales_path %></li>
+                                <li><%= link_to 'Search Sales', salessearch_path %></li>
+                                <li><%= link_to 'Statistics', salesstatistics_path %></li>
+                                <li class="divider"></li>
+                                <li><%= link_to 'Upload Sales', new_sale_path %></li>
+                            </ul>
+                        </li>
+                        <li id="fat-menu" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Account <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to 'Profile', current_user %></li>
+                                <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= link_to 'Sign Out', signout_path, method: 'delete' %>
+                                </li>
+                            </ul>
+                        </li>
+                    <% else %>
+                        <li><%= link_to 'Sign In', signin_path %></li>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

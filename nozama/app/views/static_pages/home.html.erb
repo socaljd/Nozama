@@ -1,0 +1,17 @@
+<% if signed_in? %>
+    <% provide(:title, 'Home') %>
+<% else %>
+    <div class="center hero-unit">
+
+        <h1>Welcome to Nozama</h1>
+
+        <h2>
+            Amazon Data Analyzer
+        </h2>
+
+        <%= link_to 'Login', signin_path,
+                    class: 'btn btn-large btn-primary' %>
+        <%= link_to 'Sign Up', signup_path,
+                    class: 'btn btn-large btn-primary' %>
+    </div>
+<% end %> 

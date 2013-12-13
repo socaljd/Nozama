@@ -1,0 +1,36 @@
+<% provide(:title, @inventory.product_name) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Product Name:</strong>
+    <%= @inventory.product_name %>
+    <br/>
+    <strong>Days In Inventory:</strong>
+    <%= (Date.today - @inventory.received_date).to_i %>
+    <br/>
+    <strong>Received Date:</strong>
+    <%= @inventory.received_date %>
+    <br/>
+    <strong>SKU:</strong>
+    <%= @inventory.sku %>
+    <br/>
+    <strong>FNSKU:</strong>
+    <%= @inventory.fnsku %>
+    <br/>
+    <strong>FBA Shipment ID:</strong>
+    <%= @inventory.fba_shipment_id %>
+    <br/>
+    <strong>Quantity Shipped:</strong>
+    <%= @inventory.quantity %>
+    <br/>
+    <strong>Quantity Remaining:</strong>
+    <%= @inventory.quantity_remaining %>
+    <br/>
+    <strong>Fulfillment Center ID:</strong>
+    <%= @inventory.fulfillment_center_id %>
+    <br/>
+
+    <br/>
+    <strong><%= link_to 'Click For Associated Sales', sales_path(:fnsku => @inventory.fnsku, :item_id => @inventory.id) %></strong>
+</p>

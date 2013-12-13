@@ -1,0 +1,21 @@
+<% provide(:title, 'Search Inventory Data') %>
+<h1>Search Inventory Data</h1>
+
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for(@inventory) do |f| %>
+            <%= f.label :product_name, 'Product Name' %>
+            <%= f.text_field :product_name %>
+            <br/>
+            <%= f.label :fnsku, 'FNSKU' %>
+            <%= f.text_field :fnsku %>
+            <br/>
+            <%= f.check_box :id, {}, true, false %>
+            <%= f.label :active, 'Search Active Inventory Only', class: 'checkbox inline' %>
+            <br/><br/>
+            <%= submit_tag 'Search', class: 'btn btn-small btn-primary', disable_with: 'Searching...', :name => 'name' %>
+        <% end %>
+    </div>
+</div>
+
+<%= link_to 'Back', inventories_path %>

@@ -1,0 +1,31 @@
+<% provide(:title, 'Batch Inventory') %>
+<h1>Batch Inventory</h1>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>
+<table align="center">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <td>&nbsp&nbsp</td>
+        <th>Recieved Date</th>
+        <td>&nbsp&nbsp</td>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @inventories.each do |inventory| %>
+        <tr>
+            <td><%= link_to inventory.product_name, batchinventoryshow_path(:id => inventory.id, :batch_id => inventory.batch_id) %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= inventory.received_date.strftime('%m/%d/%Y') %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= link_to 'Delete', batchinventorydeleteone_path(:id => inventory.id, :batch_id => inventory.batch_id), data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>

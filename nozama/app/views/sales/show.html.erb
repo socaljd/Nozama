@@ -1,0 +1,51 @@
+<% provide(:title, @sale.amazon_order_id) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Amazon Order ID:</strong>
+    <%= @sale.amazon_order_id %>
+    <br/>
+    <strong>Days In Inventory:</strong>
+    <%= @sale.days_in_inventory.abs %>
+    <br/>
+    <strong>Shipment Date:</strong>
+    <%= @sale.shipment_date.strftime('%m/%d/%Y') %>
+    <br/>
+    <strong>SKU:</strong>
+    <%= @sale.sku %>
+    <br/>
+    <strong>FNSKU:</strong>
+    <%= @sale.fnsku %>
+    <br/>
+    <strong>ASIN:</strong>
+    <%= @sale.asin %>
+    <br/>
+    <strong>Fulfillment Center ID:</strong>
+    <%= @sale.fulfillment_center_id %>
+    <br/>
+    <strong>Quantity Sold:</strong>
+    <%= @sale.quantity %>
+    <br/>
+    <strong>Currency:</strong>
+    <%= @sale.currency %>
+    <br/>
+    <strong>Item Price Per Unit:</strong>
+    <%= number_to_currency(@sale.item_price_per_unit) %>
+    <br/>
+    <strong>Shipping Price:</strong>
+    <%= number_to_currency(@sale.shipping_price) %>
+    <br/>
+    <strong>Gift Wrap Price:</strong>
+    <%= number_to_currency(@sale.gift_wrap_price) %>
+    <br/>
+    <strong>Ship City:</strong>
+    <%= @sale.ship_city %>
+    <br/>
+    <strong>Ship State:</strong>
+    <%= @sale.ship_state %>
+    <br/>
+    <strong>Ship Postal Code:</strong>
+    <%= @sale.ship_postal_code %>
+    <br/>
+</p>

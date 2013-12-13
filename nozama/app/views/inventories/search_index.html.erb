@@ -1,0 +1,31 @@
+<% provide(:title, 'Inventory') %>
+<h1>Inventory</h1>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>
+<table align="center">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <td>&nbsp&nbsp</td>
+        <th>Days In Inventory</th>
+        <td>&nbsp&nbsp</td>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @inventories.each do |inventory| %>
+        <tr>
+            <td><%= link_to inventory.product_name, inventory %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= (Date.today - inventory.received_date).to_i %></td>
+            <td>&nbsp&nbsp</td>
+            <td><%= link_to 'Delete', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+<div class='text-center'>
+    <%= will_paginate %>
+</div>

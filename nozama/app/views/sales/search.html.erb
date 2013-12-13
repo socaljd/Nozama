@@ -1,0 +1,18 @@
+<% provide(:title, 'Search Sales Data') %>
+<h1>Search Inventory Data</h1>
+
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for(@sale) do |f| %>
+            <%= f.label :amazon_order_id, 'Amazon Order ID' %>
+            <%= f.text_field :amazon_order_id %>
+            <br/>
+            <%= f.label :fnsku, 'FNSKU' %>
+            <%= f.text_field :fnsku %>
+            <br/>
+            <%= submit_tag 'Search', class: 'btn btn-small btn-primary', disable_with: 'Searching...', :name => 'name' %>
+        <% end %>
+    </div>
+</div>
+
+<%= link_to 'Back', sales_path %>
